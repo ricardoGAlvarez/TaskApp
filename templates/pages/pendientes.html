@@ -5,36 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     <title>Document</title>
 </head>
 <body>
-    <div class="container pt-4 d-flex flex-column align-items-center">
+    {% include 'pages/header.html' %}
+    <div class="container">
+      <h2 class="text-center">Tareas Pendientes</h2>
+
+        <form action="/buscar/pendientes" method="GET" class="search">
+          <input type="text" name="barrio" placeholder="Filtrar por barrio">
+          <button type="submit" class="btn btn-dark">Buscar</button>
+        </form>
+     
       {% for reclamo in reclamo %}
-      <div class="card mt-4 mb-4" style="width: 18rem;">
-          <div class="card-body text-start">
-              <span>Numero de Reclamo: </span>
-              <p class="card-text">{{reclamo[0]}}</p>
-              <span>Nombre y Apellido: </span>
-              <p class="card-text">{{reclamo[1]}}</p>
-              <span>Barrio: </span>
-              <p class="card-text">{{reclamo[2]}}</p>
-              <span>Calle: </span>
-              <p class="card-text">{{reclamo[3]}}</p>
-              <span>Problema: </span>
-              <p class="card-text">{{reclamo[4]}}</p>
-              <div class="acciones pt-4">
-                      <a class="btn btn-primary" type="submit" href="edit/{{reclamo[0]}}">Editar</a>
-                  <form action="/eliminar" method="POST" style="display: inline;">
-                      <input type="hidden" name="id" value="{{reclamo[0]}}">
-                      <button class="btn btn-success" type="submit">Realizado</button>
-                  </form>
+      <div class="cards mt-4 mb-4">
+              <div class="card-side">
+               <strong> N°: {{reclamo[0]}}</strong>
+                
               </div>
-          </div>
+              <div class="card-main">
+                
+              <label>
+                <strong>Nombre y Apellido:</strong> {{reclamo[1]}}
+              </label>
+              <label>
+                <strong>Barrio: </strong>{{reclamo[2]}}
+                
+              </label>
+              <label>
+                <strong>Calle: </strong> {{reclamo[3]}}
+              </label>
+              <p>
+               <label > <strong>Problema:</strong></label> <p class="textarea">{{reclamo[4]}}</p>
+              </p>
+              </div>
+              <div class="acciones">
+               <div class="editar">
+                <a class="btn btn-primary" type="submit" href="edit/{{reclamo[0]}}">Editar</a>
+               </div>
+                <form action="/realizados/guardar/{{reclamo[0]}}" method="post">
+                        <button class="btn btn-success" type="submit"><a>Realizado</a></button>
+                </form>                                           
+              </div>
       </div>
       {% endfor %}
-      
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-</body>
+    {% include 'pages/footer.html' %}
+
+  </body>
+
 </html>

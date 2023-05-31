@@ -1,0 +1,224 @@
+
+.container {
+  margin-top: 2rem;
+  flex: 1;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+
+.cards {
+  background: #4e54c8;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  backdrop-filter: blur(3.5px);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.card-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:5%;
+  font-size: 1.5rem;
+  height:100%;
+  color:#fff;
+}
+
+.card-main {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction:column;
+  width: 55%;
+  padding-top:1rem;
+}
+.acciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  width: 20%;
+}
+.acciones a{
+  font-size:1.5rem;
+}
+.btn{
+  margin:0.5rem 0 .5rem 0;
+  width: 200px;
+}
+label{
+  font-size:1.5rem;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height: 100%;
+  width:100%;
+  padding:1rem;
+}
+.form-control{
+  width:80% !important;
+  margin:1rem 0 1rem 0;
+}
+.content{
+  display: flex;
+    justify-content: center;
+}
+.realizados{
+  background: #DCE35B; 
+background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  
+background: linear-gradient(to right, #45B649, #DCE35B); 
+}
+.footer {
+  background: #000046;
+  background: -webkit-linear-gradient(to left, #1CB5E0, #000046);
+  background: linear-gradient(to left, #1CB5E0, #000046);
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  padding: 20px;
+}
+.navbar{
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.navbar-toggler{
+  background:white !important;
+}
+.navbar a{
+  color:#fff;
+
+}
+.brand{
+  width: 30%;
+}
+.footer img{
+  width:80px;
+  margin-left:1.5rem;
+  
+}
+.derechos{
+  width:40%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.social{
+  display: flex;
+  align-items:center;
+  width: 30%;
+  justify-content: center;
+}
+.social i{
+  font-size:1.3rem;
+  margin:0 1rem 0 1rem;
+}
+.btns{
+  display: flex;
+}
+.btns .btn{
+  margin:0 5px 0 5px;
+}
+.search{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+}
+.search i{
+  margin-right:1rem;
+}
+.search input{
+  border-radius:10px;
+}
+@media(max-width:1200px){
+  .cards{
+   flex-direction:column;
+  }
+  .card-side{
+   display: flex;
+   width:100%;
+   align-items:center;
+  }
+  .card-main{
+   padding:0 1rem 0 1rem;
+   width: 100%;
+  }
+  .acciones{
+   width: 100%;
+   flex-direction:row;
+   align-items:center;
+ 
+  }
+  form{
+   width: 50%;
+ 
+  }
+  .formnuevo{
+    width:100%;
+  }
+  .acciones a{
+   font-size:1rem;
+ }
+ .btn{
+   margin:0.5rem 0 .5rem 0;
+   width: 150px;
+ 
+ }
+ .textarea{
+   width:100%;
+   overflow: hidden; 
+   word-wrap: break-word;
+ }
+ 
+ }
+ @media(max-width:570px){
+  .footer {
+    flex-direction:column;
+    align-items:center;
+  }
+  .brand{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+  }
+  .brand img{
+    margin:0;
+    padding:0;
+  }
+  .derechos{
+    width:100%;
+    display: flex;
+    justify-content:center;
+  }
+  .social{
+    display: flex;
+    align-items:center;
+    width: 100%;
+    justify-content: center;
+  }
+ }
+
+
+
+

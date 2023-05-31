@@ -5,12 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
     <title>Document</title>
 </head>
 <body>
+    {% include 'pages/header.html' %}
     <div class="container">
-        
+        <h2 class="text-center">Tareas Realizadas</h2>
+        <form action="/buscar/realizados" method="GET" class="search">
+          <input type="text" name="barrio" placeholder="Filtrar por barrio">
+          <button type="submit" class="btn btn-dark">Buscar</button>
+        </form>
+      {% for reclamo in reclamo %}
+      <div class="cards realizados mt-4 mb-4">
+              <div class="card-side ">
+                <span>N°: </span>
+                <strong class="card-text">{{reclamo[0]}}</strong>
+              </div>
+              <div class="card-main">
+                
+              <label>
+                <strong>Nombre y Apellido:</strong> {{reclamo[1]}}
+              </label>
+              <label>
+                <strong>Barrio: </strong>{{reclamo[2]}}
+                
+              </label>
+              <label>
+                <strong>Calle: </strong> {{reclamo[3]}}
+              </label>
+              <p>
+                <label > <strong>Problema:</strong></label> <p class="textarea">{{reclamo[4]}}</p>
+               </p>
+              </div>
+              <div class="acciones">
+                <form action="/realizados/pendientes/{{reclamo[0]}}" method="post">
+                    <button class="btn btn-primary"type="submit"><a>Poner Pendiente</a></button>
+                  </form>                                          
+              </div>
+      </div>
+      {% endfor %}
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+{% include 'pages/footer.html' %}
+
 </html>
