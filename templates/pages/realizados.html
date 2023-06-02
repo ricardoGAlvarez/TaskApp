@@ -12,25 +12,22 @@
 <body>
     {% include 'pages/header.html' %}
     <div class="container">
-        <h2 class="text-center">Tareas Realizadas</h2>
+      <h2 class="text-center" style="color:#Fff;">Tareas Realizadas</h2>
         <form action="/buscar/realizados" method="GET" class="search">
           <input type="text" name="barrio" placeholder="Filtrar por barrio">
           <button type="submit" class="btn btn-dark">Buscar</button>
         </form>
       {% for reclamo in reclamo %}
-      <div class="cards realizados mt-4 mb-4">
+      <div class="cards mt-4 mb-4">
               <div class="card-side ">
-                <span>N°: </span>
-                <strong class="card-text">{{reclamo[0]}}</strong>
+                <strong>{{reclamo[2]}}</strong>
+                
+                <strong class="card-text"> <span>N°: </span>{{reclamo[0]}}</strong>
               </div>
               <div class="card-main">
                 
               <label>
                 <strong>Nombre y Apellido:</strong> {{reclamo[1]}}
-              </label>
-              <label>
-                <strong>Barrio: </strong>{{reclamo[2]}}
-                
               </label>
               <label>
                 <strong>Calle: </strong> {{reclamo[3]}}

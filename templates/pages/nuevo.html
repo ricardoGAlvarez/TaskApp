@@ -18,10 +18,10 @@
     <title>Document</title>
   </head>
   <body>
-    {% include 'pages/header.html' %}
+    {% include 'pages/header.html'%}
 
     <div class="container">
-      <h2 class="text-center pb-4">Agregar Reclamo</h2>
+      <h2 class="text-center pb-5" style="color:#Fff;">Agregar Reclamo</h2>
       <div class="content cards">
         <form action="/nuevo/guardar" class="formnuevo" method="post">
           <input
@@ -55,7 +55,7 @@
           ></textarea>
           <div class="btns">
             <button class="btn btn-primary">Agregar</button>
-            <a class="btn btn-danger" href="/">Cancelar</a>
+            <a class="btn btn-danger" href="/" >Cancelar</a>
           </div>
         </form>
       </div>
@@ -66,5 +66,7 @@
       crossorigin="anonymous"
     ></script>
   </body>
+
+  
   {% include 'pages/footer.html' %}
 </html>

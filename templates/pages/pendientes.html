@@ -12,7 +12,7 @@
 <body>
     {% include 'pages/header.html' %}
     <div class="container">
-      <h2 class="text-center">Tareas Pendientes</h2>
+      <h2 class="text-center" style="color:#Fff;">Tareas Pendientes</h2>
 
         <form action="/buscar/pendientes" method="GET" class="search">
           <input type="text" name="barrio" placeholder="Filtrar por barrio">
@@ -22,18 +22,16 @@
       {% for reclamo in reclamo %}
       <div class="cards mt-4 mb-4">
               <div class="card-side">
-               <strong> N°: {{reclamo[0]}}</strong>
-                
+                <strong>{{reclamo[2]}} </strong>
+               <strong> N°:{{reclamo[0]}}</strong>
+               <strong>{{reclamo[7]}}</strong> 
               </div>
               <div class="card-main">
-                
+    
               <label>
                 <strong>Nombre y Apellido:</strong> {{reclamo[1]}}
               </label>
-              <label>
-                <strong>Barrio: </strong>{{reclamo[2]}}
-                
-              </label>
+     
               <label>
                 <strong>Calle: </strong> {{reclamo[3]}}
               </label>
@@ -42,12 +40,16 @@
               </p>
               </div>
               <div class="acciones">
-               <div class="editar">
-                <a class="btn btn-primary" type="submit" href="edit/{{reclamo[0]}}">Editar</a>
+               <div>
+                <a class="btn btn-primary editar" type="submit" href="edit/{{reclamo[0]}}">Editar</a>
                </div>
                 <form action="/realizados/guardar/{{reclamo[0]}}" method="post">
-                        <button class="btn btn-success" type="submit"><a>Realizado</a></button>
-                </form>                                           
+                        <button class="btn btn-success hecho" type="submit"><a>Realizado</a></button>
+                </form>   
+                <div >
+                  <a class="btn btn-warning ver" type="submit" href="historial/{{reclamo[0]}}">Historial</a>
+                </div>
+                                        
               </div>
       </div>
       {% endfor %}
