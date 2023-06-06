@@ -39,7 +39,10 @@
               <div class="acciones">
                 <form action="/realizados/pendientes/{{reclamo[0]}}" method="post">
                     <button class="btn btn-primary"type="submit"><a>Poner Pendiente</a></button>
-                  </form>                                          
+                  </form> 
+                  <div >
+                    <a class="btn btn-warning ver" type="submit" href="historial/{{reclamo[0]}}">Historial</a>
+                  </div>                                         
               </div>
       </div>
       {% endfor %}

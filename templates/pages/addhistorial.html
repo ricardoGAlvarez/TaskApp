@@ -16,21 +16,14 @@
     {% include 'pages/header.html'%}
 
     <div class="container pb-4">
-        <h2 class="text-center mb-5" style="color:#Fff;">Editar Reclamo</h2>
+        <h2 class="text-center mb-5" style="color:#Fff;">Agregar Historial</h2>
         <div class="content cards">
-            <form action="/edit/guardar/{{id}}" class="formnuevo" method="post">
-                    Nombre y Apellido:
-                    <input type="text" class="form-control" id="txtNyA" name="txtNyA" value="{{ nombre }}">
-                    Calle:
-                    <input type="text" class="form-control" id="txtCalle" name="txtCalle" value="{{ calle }}">
-                    Barrio:
-                    <input type="text" class="form-control" id="txtBarrio" name="txtBarrio" value="{{ barrio }}">
-                    Problema:
-                    <input type="text" class="form-control" id="txtProblema" name="txtProblema" value="{{ problema }}">
-                    
+            <form action="/addhistorial/guardar/{{id}}" class="formnuevo" method="post">
+                  Historial:
+                    <input type="text" class="form-control" id="txtHistorial" name="txtHistorial" placeholder="Descripcion de lo realizado">
                 <div class="btns">
-                    <button class="btn btn-primary">Actualizar</button>
-                    <a class="btn btn-danger" href="/" >Cancelar</a>
+                    <button class="btn btn-success hecho" type="submit"><a>Realizado</a></button>
+                    <a class="btn btn-danger" href="/pendientes" >Cancelar</a>
 
                 </div>
             </form>
